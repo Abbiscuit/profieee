@@ -6,11 +6,17 @@
       <br />
       <input type="email" name="email" placeholder="Email" />
       <br />
-      <input type="password" name="password" placeholder="Password" />
+      <input
+        type="password"
+        name="current-password"
+        placeholder="Current Password"
+      />
       <br />
       <div class="buttons">
         <button class="auth-button">登録</button>
-        <button class="google-button">Google</button>
+        <button @click.prevent="googleSignIn" class="google-button">
+          Google
+        </button>
         <p class="auth-option">
           <router-link to="/">既にアカウントを持っている</router-link>
         </p>
@@ -20,8 +26,16 @@
 </template>
 
 <script>
+import { googleSignIn } from "../firebase/config";
+
 export default {
-  name: "Auth"
+  name: "Auth",
+  data() {
+    return {};
+  },
+  methods: {
+    googleSignIn
+  }
 };
 </script>
 
